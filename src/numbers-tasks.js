@@ -355,7 +355,7 @@ function numberToStringInBase(number, base) {
  * 12345, 2    => '1.23e+4'
  */
 function toExponential(number, fractionDigits) {
-  return ;
+  return Number(number).toExponential(fractionDigits);
 }
 
 /**
@@ -370,7 +370,7 @@ function toExponential(number, fractionDigits) {
  * 12.345, 1   => '12.3'
  */
 function toFixed(number, fractionDigits) {
-  return ;
+  return Number(number).toFixed(fractionDigits);
 }
 
 /**
@@ -386,7 +386,7 @@ function toFixed(number, fractionDigits) {
  * 12.345, 4   => '12.35'
  */
 function toPrecision(number, precision) {
-  return ;
+  return Number(number).toPrecision(precision);
 }
 
 /**
@@ -400,7 +400,7 @@ function toPrecision(number, precision) {
  * Number(-5)    => -5
  */
 function getNumberValue(number) {
-  return ;
+  return number.valueOf();
 }
 
 /**
@@ -419,7 +419,7 @@ function getNumberValue(number) {
  * '5'      => false
  */
 function isNumber(number) {
-  return ;
+  return Number.isFinite(number);
 }
 
 /**
@@ -434,7 +434,7 @@ function isNumber(number) {
  * '5'  => false
  */
 function isInteger(number) {
-  return ;
+  return Number.isInteger(number);
 }
 
 /**
@@ -448,7 +448,7 @@ function isInteger(number) {
  * 'abcdefgh'      => NaN
  */
 function getFloatOnString(str) {
-  return ;
+  return Number.parseFloat(str);
 }
 
 /**
@@ -466,7 +466,7 @@ function getFloatOnString(str) {
  * '10', 8              => 8
  */
 function getIntegerOnString(str, base) {
-  return ;
+  return Number.parseInt(str, base);
 }
 
 /**
@@ -481,7 +481,7 @@ function getIntegerOnString(str, base) {
  * 2 ** 53  => false
  */
 function isSafeInteger(number) {
-  return ;
+  return Number.isSafeInteger(number);
 }
 
 /**
@@ -495,7 +495,7 @@ function isSafeInteger(number) {
  * -5.1 => -6
  */
 function roundToSmallestInteger(number) {
-  return ;
+  return Math.floor(number);
 }
 
 /**
@@ -509,7 +509,7 @@ function roundToSmallestInteger(number) {
  * -5.9 => -5
  */
 function roundToLargestInteger(number) {
-  return ;
+  return Math.ceil(number);
 }
 
 /**
@@ -524,7 +524,7 @@ function roundToLargestInteger(number) {
  * -5.5 => -5
  */
 function roundToNearestInteger(number) {
-  return ;
+  return Math.round(number);
 }
 
 /**
@@ -539,7 +539,7 @@ function roundToNearestInteger(number) {
  * -5.5 => -5
  */
 function getIntegerPartNumber(number) {
-  return ;
+  return Math.trunc(number);
 }
 
 /**
@@ -555,7 +555,7 @@ function getIntegerPartNumber(number) {
  * 0.1, 0.2, 0.3 => 0.6
  */
 function getSumOfNumbers(x1, x2, x3) {
-  return ;
+  return +(x1 + x2 + x3).toFixed(2);
 }
 
 /**
@@ -571,7 +571,7 @@ function getSumOfNumbers(x1, x2, x3) {
  * 0, 5   => 5
  */
 function getMaxNumber(firstNumber, secondNumber) {
-  return ;
+  return Math.max(firstNumber, secondNumber);
 }
 
 /**
@@ -587,7 +587,7 @@ function getMaxNumber(firstNumber, secondNumber) {
  * -1, 1 => -1 | 0 | 1
  */
 function getRandomInteger(min, max) {
-  return ;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 /**
@@ -601,7 +601,7 @@ function getRandomInteger(min, max) {
  * 3, 4 => 5
  */
 function getHypotenuse(a, b) {
-  return ;
+  return Math.hypot(a, b);
 }
 
 /**
@@ -618,7 +618,7 @@ function getHypotenuse(a, b) {
  * 15 => 8
  */
 function getCountOfOddNumbers(number) {
-  return ;
+  return Math.ceil(Math.abs(number) / 2);
 }
 
 module.exports = {
