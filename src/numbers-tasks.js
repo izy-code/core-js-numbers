@@ -202,6 +202,7 @@ function isPrime(n) {
   for (let divider = 2; divider <= Math.floor(Math.sqrt(n)); divider += 1) {
     if (n % divider === 0) return false;
   }
+
   return true;
 }
 
@@ -222,6 +223,7 @@ function isPrime(n) {
  */
 function toNumber(value, def) {
   const converted = Number(value);
+
   return Number.isNaN(converted) ? def : converted;
 }
 
@@ -286,12 +288,14 @@ function getSumToN(n) {
  *   5   => 5  // 5
  */
 function getSumOfDigits(num) {
+  let numCopy = num;
   let result = 0;
-  let copyNum = num;
-  while (copyNum >= 1) {
-    result += copyNum % 10;
-    copyNum = Math.trunc(copyNum / 10);
+
+  while (numCopy >= 1) {
+    result += numCopy % 10;
+    numCopy = Math.trunc(numCopy / 10);
   }
+
   return result;
 }
 
@@ -307,11 +311,13 @@ function getSumOfDigits(num) {
  *   15  => false
  */
 function isPowerOfTwo(num) {
-  let copyNum = num;
-  while (copyNum > 2) {
-    if (copyNum % 2 !== 0) return false;
-    copyNum /= 2;
+  let numCopy = num;
+
+  while (numCopy > 2) {
+    if (numCopy % 2 !== 0) return false;
+    numCopy /= 2;
   }
+
   return true;
 }
 
@@ -355,7 +361,7 @@ function numberToStringInBase(number, base) {
  * 12345, 2    => '1.23e+4'
  */
 function toExponential(number, fractionDigits) {
-  return Number(number).toExponential(fractionDigits);
+  return number.toExponential(fractionDigits);
 }
 
 /**
@@ -370,7 +376,7 @@ function toExponential(number, fractionDigits) {
  * 12.345, 1   => '12.3'
  */
 function toFixed(number, fractionDigits) {
-  return Number(number).toFixed(fractionDigits);
+  return number.toFixed(fractionDigits);
 }
 
 /**
@@ -386,7 +392,7 @@ function toFixed(number, fractionDigits) {
  * 12.345, 4   => '12.35'
  */
 function toPrecision(number, precision) {
-  return Number(number).toPrecision(precision);
+  return number.toPrecision(precision);
 }
 
 /**
